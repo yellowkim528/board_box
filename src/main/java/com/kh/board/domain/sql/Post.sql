@@ -2,7 +2,7 @@
 drop table post;
 
 --시퀀스삭제
-drop sequence product_product_id_seq;
+drop sequence post_post_id_seq;
 
 ---------
 --글 관리

@@ -90,25 +90,24 @@
   })
   const $saveBtn = document.getElementById('saveBtn');
   $saveBtn.addEventListener('click', evt => {
-
     const $postTitle = document.getElementById('postTitle').value;
     const $writer = document.getElementById('writer').value;
     const $postBody = document.getElementById('postBody').value;
-
     if($postTitle == ''){
       alert('제목을 입력하세요');
+      evt.preventDefault();
       return;
     }
     if($writer == ''){
       alert('작성자를 입력하세요');
+      evt.preventDefault();
       return;
     }
     if($postBody == ''){
       alert('내용을 입력하세요');
+      evt.preventDefault();
       return;
     }
-
-    document.getElementById('frm').submit();
 
   })
 </script>
