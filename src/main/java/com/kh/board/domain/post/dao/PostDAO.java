@@ -18,7 +18,6 @@ public interface PostDAO {
   // 삭제
   int deleteById(Long postId);
 
-
   // 목록
   List<Post> findAll();
 

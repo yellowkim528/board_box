@@ -25,7 +25,6 @@ class PostDAOImplTest {
     Long pid = 52L;
     int deletedRowCnt = postDAO.deleteById(pid);
     Assertions.assertThat(deletedRowCnt).isEqualTo(1);
-
   }
 
   @Test
