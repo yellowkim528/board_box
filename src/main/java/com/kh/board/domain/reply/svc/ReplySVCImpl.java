@@ -2,6 +2,7 @@ package com.kh.board.domain.reply.svc;
 
 import com.kh.board.domain.entity.Reply;
 import com.kh.board.domain.reply.dao.ReplyDAO;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -9,14 +10,16 @@ import java.util.List;
 
 @Service
 @Slf4j
+@RequiredArgsConstructor
 public class ReplySVCImpl implements ReplySVC{
 
-  private ReplyDAO replyDAO;
+  private final ReplyDAO replyDAO;
+
 
   // 댓글 목록
   @Override
-  public List<Reply> findAll() {
-    return replyDAO.finaAll();
+  public List<Reply> findAll(Long postId) {
+    return replyDAO.finaAll(postId);
   }
 
   // 댓글 작성

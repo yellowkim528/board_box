@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ReplySVC {
   //댓글 목록
-  List<Reply> findAll();
+  List<Reply> findAll(Long postId);
 
   //댓글 작성
   Long addReply(Reply reply);

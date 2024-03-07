@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>게시글보기</title>
+</head>
+<body>
+<div>
+  <form action="">
+    <div><label for="">글번호</label><input type="text" readonly value="1"></div>
+    <div><label for="">작성자</label><input type="text" readonly value="user1@kh.com"></div>
+    <div><label for="">제목</label><input type="text" readonly value="원글제목"></div>
+    <div><label for="">내용</label><textarea type="text" readonly>원글내용</textarea></div>
+  </form>
+</div>
+<div>
+  <form>
+    <label for="">댓글</label><textarea name="" id="" cols="30" rows="10"></textarea>
+    <button>등록</button>
+  </form>
+</div>
+<div id="replyList">
+
+  <div data-reply-id="2">
+    <div><span>user2@kh.com</span><span>사용자2</span></div>
+    <div> 댓글 내용 </div>
+    <div>
+      <button>수정</button>
+      <button>삭제</button>
+    </div>
+  </div>
+  <div data-reply-id="3">
+    <div><span>user3@kh.com</span><span>사용자3</span></div>
+    <div> 댓글 내용 </div>
+    <div>
+      <button>수정</button>
+      <button>삭제</button>
+    </div>
+  </div>
+  <div data-reply-id="4">
+    <div><span>user4@kh.com</span><span>사용자4</span></div>
+    <div> 댓글 내용 </div>
+    <div>
+      <button>수정</button>
+      <button>삭제</button>
+    </div>
+  </div>
+</div>
+<script th:inline="javascript">
+  displayList();
+
+  const memberId = [[${session.loginMember.memberId}]]
+  const memberEmail = [[${session.loginMember.email}]]
+  const memberNickname = [[${session.loginMember.nickname}]]
+  const memberRole = [[${session.loginMember.memberRole}]]
+
+
+  console.log(memberId,memberEmail,memberNickname,memberRole);
+
+  function displayList(){
+
+
+    //목록 가져오기
+  }
+</script>
+
+</body>
+</html>

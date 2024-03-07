@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ReplyDAO {
   // 목록
-  List<Reply> finaAll();
+  List<Reply> finaAll(Long postId);
 
   // 추가
   Long addReply(Reply reply);

@@ -26,12 +26,16 @@ public class ReplyDAOImpl implements ReplyDAO{
 
   // 댓글 목록
   @Override
-  public List<Reply> finaAll() {
+  public List<Reply> finaAll(Long postId) {
     StringBuffer sql = new StringBuffer();
     sql.append("select reply_id, reply_body, reply_writer, post_id, cdate, udate ");
     sql.append("  from reply ");
+    sql.append(" where post_id = :postId ");
 
-    List<Reply> list = template.query(sql.toString(), BeanPropertyRowMapper.newInstance(Reply.class));
+    SqlParameterSource param = new MapSqlParameterSource().addValue("postId", postId);
+
+
+    List<Reply> list = template.query(sql.toString(), param, BeanPropertyRowMapper.newInstance(Reply.class));
 
     return list;
   }

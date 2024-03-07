@@ -23,7 +23,7 @@ class ReplyDAOImplTest {
   @Test
   @DisplayName("댓글목록")
   void finaAll() {
-    List<Reply> replies = replyDAO.finaAll();
+    List<Reply> replies = replyDAO.finaAll(1L);
     for (Reply reply : replies) {
       log.info("replies={}", replies);
     }
