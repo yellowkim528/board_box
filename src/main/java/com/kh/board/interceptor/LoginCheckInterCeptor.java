@@ -1,6 +1,6 @@
 package com.kh.board.interceptor;
 
-import com.kh.board.web.form.member.SessionConst;
+import com.kh.board.web.form.members.SessionConst;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
@@ -17,29 +17,27 @@ public class LoginCheckInterCeptor implements HandlerInterceptor {
     String redirectUrl = null;
 
     String requestURI = request.getRequestURI();
-    log.info("요청uri={}",requestURI);              // /products/news
-    log.info("요청url={}",request.getRequestURL()); // http://localhost:9080/products/news
+    log.info("요청uri={}",requestURI);
+    log.info("요청url={}",request.getRequestURL());
 
-    //요청 파리미터 정보가 있는 경우 http://localhost:9080/products/news?a=1&b=2
+
     if(request.getQueryString() != null){
       log.info("요청url getQueryString={}",request.getQueryString());
       //요청파리미터 인코딩
-      String queryString = URLEncoder.encode(request.getQueryString(),"UTF-8");   //a=1&b=2
+      String queryString = URLEncoder.encode(request.getQueryString(),"UTF-8");
       StringBuffer str = new StringBuffer();
-      redirectUrl = str.append(requestURI).append("?").append(queryString).toString(); //products?a=1&b=2
+      redirectUrl = str.append(requestURI).append("?").append(queryString).toString();
       log.info("redirectUrl={}",redirectUrl);
     }else{
-      //요청 파리미터 정보가 없는 경우 http://localhost:9080/products/news
-      redirectUrl = requestURI;    // /products/news
+      redirectUrl = requestURI;
     }
 
     //세션 정보 읽어오기
     HttpSession session = request.getSession(false);
     if(session == null || session.getAttribute(SessionConst.LOGIN_MEMBER) == null){
       log.info("미인증상태");
-      // 302 http://localhost:9080/login
       response.sendRedirect("/login?redirectUrl="+redirectUrl);
-      return false;   //다음 인터셉터 포함하여 컨트롤러 수행하지 않음
+      return false;
     }
     return true;
   }

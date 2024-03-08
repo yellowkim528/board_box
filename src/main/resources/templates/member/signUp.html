@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입임</title>
+</head>
+<body>
+<h3>너 내 동료가 되어라</h3>
+
+<form action="/members/join" method="POST">
+  <p>
+    <input type="text" name="email" id="email" data-emailchk="" placeholder="이메일">
+    <button type="button" id="check1">중복체크</button>
+    <span class="errmsg" id="errmsg"></span>
+    
+  </p>
+  <p><input type="password" name="passwd" placeholder="비밀번호"></p>
+  <p><input type="password" placeholder="비밀번호 함더"></p>  
+  <p><input type="text" name="nickname" placeholder="닉네임"></p>  
+  <p><button id="signUpBtn">회원가입</button></p>
+
+</form>
+<script>
+  //에러메세지
+  const $errmsg = document.getElementById('errmsg');
+  const $email = document.getElementById('email');
+
+  // 이메일 중복체크
+  document.getElementById('check1').addEventListener('click',evt=>{
+    console.log("중복체크");
+    if(email.value.trim().length == 0){
+      console.log("비어있음");
+      $errmsg.textContent = "이메일을 입력해주세요";
+      $email.focus();
+      return;
+    }
+    emailCheck();
+  })
+
+  // 이메일 중복체크 함수
+  async function emailCheck(){
+    const email = {};
+    email.email = $email.value;
+    const url = `/api/members/emailCheck`;
+    const option ={
+      method : 'POST',
+      headers : {
+        'Content-Type' : 'application/json',
+        accept: 'application/json'
+      },
+      body : JSON.stringify(email)
+    }
+    const res = await fetch(url, option);
+    const msgbody = await res.json();
+
+    if(msgbody.header.rtcd == '21'){
+      console.log('이메일 중복임');
+      $errmsg.textContent = "이미 있음. 딴거하셈";
+      $email.dataset.emailchk = 'ok';
+      $email.focus();
+    } else {
+      $email.dataset.emailchk = 'nok';
+      $errmsg.textContent = "사용가능한 Email입니당!";
+      console.log("이메일 써도됨");
+    }
+  }
+  
+
+</script>
+
+</body>
+</html>

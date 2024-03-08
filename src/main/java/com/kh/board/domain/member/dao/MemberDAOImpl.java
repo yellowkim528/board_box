@@ -29,7 +29,7 @@ public class MemberDAOImpl implements MemberDAO {
   public Long joinMember(Member member) {
     StringBuffer sql = new StringBuffer();
     sql.append(" insert into member (member_id, email, passwd, nickname) ");
-    sql.append(" values(member_member_id_seq.nextval, 'user1@kh.com', 'user1', '사용자1') ");
+    sql.append(" values(member_member_id_seq.nextval, :email, :passwd, :nickname) ");
 
     SqlParameterSource param = new BeanPropertySqlParameterSource(member);
     KeyHolder keyHolder = new GeneratedKeyHolder();

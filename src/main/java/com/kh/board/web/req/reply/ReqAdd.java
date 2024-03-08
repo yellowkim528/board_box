@@ -1,8 +1,6 @@
-package com.kh.board.web.form.reply;
+package com.kh.board.web.req.reply;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 public class ReqAdd {

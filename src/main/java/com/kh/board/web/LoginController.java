@@ -2,9 +2,9 @@ package com.kh.board.web;
 
 import com.kh.board.domain.entity.Member;
 import com.kh.board.domain.member.svc.MemberSVC;
-import com.kh.board.web.form.member.LoginForm;
-import com.kh.board.web.form.member.LoginMember;
-import com.kh.board.web.form.member.SessionConst;
+import com.kh.board.web.form.members.LoginForm;
+import com.kh.board.web.form.members.LoginMember;
+import com.kh.board.web.form.members.SessionConst;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;

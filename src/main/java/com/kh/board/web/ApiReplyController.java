@@ -4,10 +4,10 @@ import com.kh.board.domain.entity.Reply;
 import com.kh.board.domain.reply.svc.ReplySVC;
 import com.kh.board.web.api.ApiResponse;
 import com.kh.board.web.api.ResCode;
-import com.kh.board.web.form.reply.ReqAdd;
-import com.kh.board.web.form.reply.ReqUpdate;
-import com.kh.board.web.form.reply.ResAdd;
-import com.kh.board.web.form.reply.ResUpdate;
+import com.kh.board.web.req.reply.ReqAdd;
+import com.kh.board.web.req.reply.ReqUpdate;
+import com.kh.board.web.req.reply.ResAdd;
+import com.kh.board.web.req.reply.ResUpdate;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -48,7 +48,6 @@ public class ApiReplyController {
 
     ApiResponse<List<Reply>> res = null;
     res = ApiResponse.createApiResponse(ResCode.OK.getCode(), ResCode.OK.name(), list);
-    // ...
 
     return res;
   }

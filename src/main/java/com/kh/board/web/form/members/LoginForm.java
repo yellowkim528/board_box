@@ -1,4 +1,4 @@
-package com.kh.board.web.form.member;
+package com.kh.board.web.form.members;
 
 import lombok.Data;
 

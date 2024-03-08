@@ -4,13 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>로그인임</title>
+  <!--  bootstrap css-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <style>
+    body {
+      padding: 10px;
+    }
+    form {
+      justify-content: center;
+    }
+  </style>
 </head>
 <body>
   <h3>어서오시오</h3>
   <form action="" method="POST">
-    <p><input type="text" name="email" placeholder="이메일"></p>
-    <p><input type="password" name="passwd" placeholder="비번"></p>
-    <p><button id="loginBtn">로그인</button></p>
+    <div class="my-3"><input class="fom-control" type="text" name="email" placeholder="이메일"></div>
+    <div class="my-3"><input class="fom-control" type="password" name="passwd" placeholder="비번"></div>
+    <p><button id="loginBtn" class="btn btn-primary">로그인</button></p>
   </form>
 
 <script>
